@@ -1,0 +1,14 @@
+.title{
+    position:relative;
+    text-align: center;
+    padding: 1%;
+}
+
+
+.map{
+    position:absolute;
+    padding: 25%;
+    width: 50%;
+    height: 30%;
+    text-align: center;
+}
