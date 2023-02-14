@@ -1,14 +1,33 @@
-.title{
+
+/* Title Centered Over Image */
+.title {
+    position: absolute;
+    background-color:rgb(86, 123, 159, 0.8);
+    outline: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+/* Image Formatting */
+.image1{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Introduction to Webpage Text Formatting */
+.introduction{
     position:relative;
     text-align: center;
     padding: 1%;
 }
 
-
+/* Map Formatting */
 .map{
     position:absolute;
     padding: 25%;
     width: 50%;
     height: 30%;
-    text-align: center;
+    align: center;
 }
