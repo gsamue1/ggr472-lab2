@@ -14,6 +14,11 @@
       <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' 
       rel="stylesheet" >
+
+    <!-- Load the `mapbox-gl-geocoder` plugin --> 
+      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+      <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+       
    
      <!-- CSS Style Sheet Link -->
     <link rel="stylesheet" href="style.css">
@@ -32,14 +37,15 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
           </li>
+          <!-- Link to Learn to Skate Resources -->
           <li class="nav-item">
             <a class="nav-link" href="https://www.toronto.ca/data/parks/prd/skating/reg/learn/index.html" target="_blank">Learn to Skate Programs</a>
           </li>
+          <!-- Link to Best Tobogganing Hills in Toronto -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.toronto.com/things-to-do/best-places-to-go-tobogganing-in-toronto/article_122cc2d5-51df-5c46-87ec-52a725ece0d1.html?" target="_blank">Best Tobogganing Hills</a>
+          </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -54,16 +60,16 @@
 <div id="introduction" class="introduction">
 <p> 
   Enjoy some of Canada's fun winter pass times!
-  This map provides location in Toronto where skating rinks are available throughout the winter! Red indicates indoor rinks, while blud indicates outdoor.
-  It also highlights parks throughout the city, as these are perfect locations for a snowball fight, sledding or winter walks.
+  This map provides location in Toronto where skating rinks are available throughout the winter! Red indicates indoor rinks, while blue indicates outdoor.
+  If you zoom in, you can also see the outlines of green spaces throughout the City; perfect locations for a snowball fight, sledding or winter walks after a big snow!
 </p>
 </div>
 
 <!-- Mapbox Map in Body -->
 <div id='map' class='map'></div>
 
-<!-- Footer
-<div><center><footer> Copyright to Georgia Samuel - January 2023 </footer></center> </div> -->
+<!-- Notes about Functionality -->
+<p><center><strong>Type your address into the search bar to find rinks and parks near you!</strong></center></p> 
 
 <!-- Script Source -->
 <script src="script.js"></script>
