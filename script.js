@@ -10,32 +10,39 @@ const map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', () => {
+    // Add Map Source for Vector Tileset of Outdoor Ice Rinks (ODRs) in Toronto 
+    // Data Sourced from City of Toronto Open Data and uploaded to personal mapbox to build vector file
     map.addSource('odr', {
         'type': 'vector',
-        'url': 'mapbox://gsamuel-uoft.14j01kfq'
+        'url': 'mapbox://gsamuel-uoft.14j01kfq' //
     });
 
+    // Adding Outdoor Rink Layer to existing basemap with simple styling
     map.addLayer({
         'id': 'outdoor-rinks-to', // unique id develoepd for layer
         'type': 'circle',
         'source': 'odr', //source id that matches addSource function
         'paint': {
-            'circle-color': '#627BC1'
+            'circle-color': '#627BC1' // colour for points
         },
         'source-layer': 'Outdoor_Ice_Rinks_-_4326-dz0kt0' //Layer ID from Mapbox page
     });
 
+    // Adding Source for GeoJSON of Indoor Ice Rinks (IDRs) in Toronto
+    // Data Sourced from City of Toronto Open Data -- downloaded directly as geoJSON
     map.addSource('idr', {
         'type': 'geojson',
-        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/indoor-ice-rinks-data.geojson?token=GHSAT0AAAAAAB6HWTCOUVP4CZSV53VQQTIIY7PV57Q' //GitHub repository link
+        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/Outdoor%20Ice%20Rinks%20-%204326.geojson?token=GHSAT0AAAAAAB6HWTCPDWWFE4QGL53YIUFAY7YJWOQ' //GitHub repository link
     });
 
+    //Adding Indoor Rink GeoJSON geometry to existing basemap with simple styling
     map.addLayer({
         'id': 'indoor-rinks-to', // unique id develoepd for layer
         'type': 'circle',
         'source': 'idr', //source id that matches addSource function
         'paint': {
-            'circle-color': 'red',
+            'circle-radius': 12,
+            'circle-color': 'red', //point colour
         },
     });
 })
