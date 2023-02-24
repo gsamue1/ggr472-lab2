@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
 //Adding Navigation Controls -- Zoom and Spin
 map.addControl(new mapboxgl.NavigationControl());
 
-//Adding Geocoding Capacity
+//Adding Geocoding Capacity -- People Can Search their Address
 map.addControl(
     new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
