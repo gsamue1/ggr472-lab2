@@ -10,6 +10,8 @@ const map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', () => {
+
+//OUTDOOR RINKS
     // Add Map Source for Vector Tileset of Outdoor Ice Rinks (ODRs) in Toronto 
     // Data Sourced from City of Toronto Open Data and uploaded to personal mapbox to build vector file
     map.addSource('odr', {
@@ -27,15 +29,18 @@ map.on('load', () => {
         },
         'source-layer': 'Outdoor_Ice_Rinks_-_4326-dz0kt0' //Layer ID from Mapbox page
     });
+ 
 
-    // Adding Source for GeoJSON of Indoor Ice Rinks (IDRs) in Toronto
-    // Data Sourced from City of Toronto Open Data -- downloaded directly as geoJSON
+//INDOOR RINKS
+    // Add Map Source for GeoJSON of Indoor Ice Rinks (ODRs) in Toronto 
+    // Data Sourced from City of Toronto Open Data -- downloaded directly to repository as geojson
     map.addSource('idr', {
         'type': 'geojson',
-        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/Outdoor%20Ice%20Rinks%20-%204326.geojson?token=GHSAT0AAAAAAB6HWTCPDWWFE4QGL53YIUFAY7YJWOQ' //GitHub repository link
+        // Use a URL for the value for the `data` property.
+        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/indoor-ice-rinks-data.geojson?token=GHSAT0AAAAAAB6HWTCOBSJKCDTZUZTEKKTCY7Y63EA'
     });
 
-    //Adding Indoor Rink GeoJSON geometry to existing basemap with simple styling
+    // //Adding Indoor Rink GeoJSON geometry to existing basemap with simple styling
     map.addLayer({
         'id': 'indoor-rinks-to', // unique id develoepd for layer
         'type': 'circle',
@@ -44,5 +49,26 @@ map.on('load', () => {
             'circle-radius': 12,
             'circle-color': 'red', //point colour
         },
+    });
+
+//PARKS
+    // Add Map Source for Vector Tileset of Green Space in Toronto 
+    // Data Sourced from City of Toronto Open Data and uploaded to personal mapbox to build vector file
+    map.addSource('green-space', {
+        'type': 'vector',
+        'url': 'mapbox://gsamuel-uoft.773bcsna' //
+    });
+
+    // Adding Green Space Layer to existing basemap with simple styling
+    map.addLayer({
+        'id': 'green-space-to', // unique id develoepd for layer
+        'type': 'fill',
+        'source': 'green-space', //source id that matches addSource function
+        'paint': {
+            'fill-color': 'green',
+            'fill-opacity': 0.4,
+            'fill-outline-color': 'green'
+        },
+        'source-layer': 'Green_Spaces-6cc34fz' //Layer ID from Mapbox page
     });
 })
