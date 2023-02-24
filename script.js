@@ -6,3 +6,36 @@ const map = new mapboxgl.Map({
     center: [-79.390, 43.663], // starting position [longitude, latitude]
     zoom: 11.29, // starting zoom
 });
+
+map.addControl(new mapboxgl.NavigationControl());
+
+map.on('load', () => {
+    map.addSource('odr', {
+        'type': 'vector',
+        'url': 'mapbox://gsamuel-uoft.14j01kfq'
+    });
+
+    map.addLayer({
+        'id': 'outdoor-rinks-to', // unique id develoepd for layer
+        'type': 'circle',
+        'source': 'odr', //source id that matches addSource function
+        'paint': {
+            'circle-color': '#627BC1'
+        },
+        'source-layer': 'Outdoor_Ice_Rinks_-_4326-dz0kt0' //Layer ID from Mapbox page
+    });
+
+    map.addSource('idr', {
+        'type': 'geojson',
+        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/indoor-ice-rinks-data.geojson?token=GHSAT0AAAAAAB6HWTCOUVP4CZSV53VQQTIIY7PV57Q' //GitHub repository link
+    });
+
+    map.addLayer({
+        'id': 'indoor-rinks-to', // unique id develoepd for layer
+        'type': 'circle',
+        'source': 'idr', //source id that matches addSource function
+        'paint': {
+            'circle-color': 'red',
+        },
+    });
+})
