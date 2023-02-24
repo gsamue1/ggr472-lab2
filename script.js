@@ -69,7 +69,7 @@ map.on('load', () => {
     map.addSource('idr', {
         'type': 'geojson',
         // Use a URL for the value for the `data` property.
-        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/indoor-ice-rinks-data.geojson?token=GHSAT0AAAAAAB6HWTCOBSJKCDTZUZTEKKTCY7Y63EA' //Raw content Github Link -- going forward will develop more comprehensible link for data in website development
+        'data': 'https://raw.githubusercontent.com/gsamue1/ggr472-lab2/main/indoor-ice-rinks-data.geojson' //Raw content Github Link -- going forward will develop more comprehensible link for data in website development
     });
 
     // //Adding Indoor Rink GeoJSON geometry to existing basemap with simple styling
