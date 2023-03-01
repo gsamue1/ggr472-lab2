@@ -6,6 +6,7 @@
     outline: black;
     top: 50%;
     left: 50%;
+    /* Translated so that the title is centered over the image backdrop */
     transform: translate(-50%, -50%);
   }
 
@@ -26,11 +27,19 @@
 /* Map Formatting */
 .map{
     position:absolute;
+    /* Padding from other website features  */
     padding: 25%;
+    /* Map Size aas percentage of webpage */
     width: 80%;
     height: 40%;
+    /* Centering the map dynamically */
     margin-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
     }
+
+.direction{
+    padding: 5%;
+    text-align: center;
+}
